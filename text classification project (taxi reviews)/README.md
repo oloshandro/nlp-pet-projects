@@ -29,10 +29,11 @@
 **1. Topic modelling** 
 *to define  possible topics to use for annotation*
 
-Gensim vs. Scikit-learn (LDA: Latent Dirichlet Allocation - topic modeling technique to extract topics from a given corpus)
+**Approaches used:**
+Gensim vs. Scikit-learn (LDA: Latent Dirichlet Allocation - topic modeling technique to extract topics from a given corpus), BERTopic
 
-BERTopic
-
+**Conclusion:** Having analysed, the following topics were created:
+Pricing and Fairness, Driver professionalism, Driver behaviour, Customer Service, Application, Lost things, Vehicle Condition,  Safety & reliability, General bad, Other
 
 **2. Text Clustering**
 *to sort the reviews into possible categories*
@@ -45,7 +46,7 @@ K-Means finds the best centroids by alternating between
 
 
 **3.Sentiment analysis**
-*to run sentiment analysis predictions* Used default **transformers** model **distilbert-base-uncased-finetuned-sst-2-english** and **sentiment-roberta-large-english**(which showed better result). 
+*to run sentiment analysis predictions*  used default **transformers** model **distilbert-base-uncased-finetuned-sst-2-english** and **sentiment-roberta-large-english**(which showed better result). 
 
 
 ## Post annotation steps
@@ -56,18 +57,20 @@ K-Means finds the best centroids by alternating between
 * removing stop words
 * lowercase
 * tokenization or sentence splitting
-* choose data
 
 **2. Feature engineering**
 * Tf-idf
 
 **3. Training sentiment analysis model**
-* using MultinomialNB, LinearSVC, LogisticRegression, AdaBoostClassifier to evaluate  and compare the prediction accuracy (*accuracy, precision, recall, and F1-score* metrix)
+* used MultinomialNB, LinearSVC, LogisticRegression, AdaBoostClassifier to evaluate  and compare the prediction accuracy (*accuracy, precision, recall, and F1-score* metrix)
 
 **4. Fine-tuning the model**
-*by adding SMOTE Technique to handle imbalanced dataset*
 
-## Conclusion1:
-MultinomialNB with SMOTE technique gave the best results so far
+*added SMOTE Technique to handle imbalanced dataset
 
 **5. Training topic classification model**
+* used MultinomialNB, LinearSVC, LogisticRegression wrapping those in the OneVsRestClassifier.*
+
+
+## Conclusions:
+MultinomialNB with SMOTE technique gave the best results so far for binary classification. As for the topic classification model, at the moment it deals well with the topics which were widely represented in the training data set, though it fails to identify the topics with few examples. 
