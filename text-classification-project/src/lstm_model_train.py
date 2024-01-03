@@ -88,3 +88,7 @@ if __name__ == "__main__":
 
     # Train LSTM model
     history = train_lstm_model(lstm_model, train_pad, y_train)
+
+    results = lstm_model.evaluate(test_pad, y_test)
+    print ('Test loss: {0}, Test accuracy: {1}'.format(results[0],results[1]))
+    
