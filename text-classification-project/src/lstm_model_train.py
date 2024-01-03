@@ -66,6 +66,10 @@ def train_lstm_model(lstm_model, train_pad, y_train, batch_size=64, epochs=5, ve
                         batch_size=batch_size,
                         epochs=epochs,
                         verbose=verbose)
+    
+    results = lstm_model.evaluate(test_pad, y_test)
+    print ('Test loss: {0}, Test accuracy: {1}'.format(results[0],results[1]))
+
     return history
 
 if __name__ == "__main__":
