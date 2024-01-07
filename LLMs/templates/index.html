@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Review Classification</title>
+</head>
+<body>
+    <h1>Review Classification</h1>
+    <form method="post">
+        <label for="review">Enter your review:</label>
+        <textarea name="review" id="review" required></textarea>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
+    {% if review %}
+        <h2>Review:</h2>
+        <p>{{ review }}</p>
+    {% endif %}
+
+    {% if results %}
+        <h2>Classification Results:</h2>
+        <ul>
+            {% for result in results %}
+                <li>{{ result }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
